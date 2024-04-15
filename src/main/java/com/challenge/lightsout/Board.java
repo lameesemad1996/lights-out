@@ -1,7 +1,7 @@
 package com.challenge.lightsout;
 public class Board {
-    private int[][] cells;
-    private int depth;
+    public final int[][] cells;
+    private final int depth;
 
     public Board(int[][] initialCells, int depth) {
         this.cells = initialCells;
@@ -36,14 +36,9 @@ public class Board {
             if (x < 0 || x >= cells.length || y < 0 || y >= cells[0].length) {
                 return false;
             }
-
-            // Check if the cell is in a state that equals the board's depth
-            // Assuming that a cell in such a state cannot have a piece placed on it
-            if (cells[x][y] == depth) {
-                return false;
-            }
         }
-        return true; // The piece can be placed
+        // The piece can be placed
+        return true;
     }
 
     public void placePiece(Piece piece, int posX, int posY) {

@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Piece {
-    private List<int[]> increments = new ArrayList<>();
+    private final List<int[]> increments = new ArrayList<>();
 
     public Piece(String shape) {
         String[] rows = shape.split(",");

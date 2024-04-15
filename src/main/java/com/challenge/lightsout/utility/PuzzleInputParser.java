@@ -29,12 +29,8 @@ public class PuzzleInputParser {
         String[] pieceStrings = lines.get(2).split(" ");
         List<Piece> pieces = new ArrayList<>();
         for (String pieceString : pieceStrings) {
-            System.out.println(pieceString);
             pieces.add(new Piece(pieceString));
         }
-
-        System.out.println(Arrays.deepToString(board));
-        System.out.println(depth);
 
         return new PuzzleInput(depth, board, pieces);
     }

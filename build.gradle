@@ -1,9 +1,43 @@
 plugins {
     id 'java'
     id 'application'
+    id 'groovy'
 }
 
 // Define the main class
 application {
     mainClassName = 'main.java.com.challenge.lights-out.Main'
 }
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Groovy dependency for compiling Groovy code
+    implementation 'org.codehaus.groovy:groovy-all:3.0.7'
+
+    // Spock framework for testing
+    testImplementation 'org.spockframework:spock-core:2.0-groovy-3.0'
+    // If you use JUnit features or other integrations, add these as well:
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java']
+        }
+    }
+    test {
+        groovy {
+            srcDirs = ['src/test/groovy']
+        }
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
